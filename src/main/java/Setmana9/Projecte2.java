@@ -36,8 +36,13 @@ public class Projecte2 {
         int telefon = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
-        boolean dadaCorrecta = true;
+        boolean dadaCorrecta = true, introduirMes;
        
+        
+    do{
+        introduirMes = false; /*per defecte, no volem introduir mes
+        si no ens indiquen el contrari
+        */
         //Comencem demanant l'id
         System.out.print("Entra el ID: ");
         dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
