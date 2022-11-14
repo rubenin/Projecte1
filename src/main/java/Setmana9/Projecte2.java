@@ -29,6 +29,7 @@ public class Projecte2 {
     public static final int MAX_INTENTS = 3;
     
     
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
         //Definim variables
         int id = 0;
@@ -37,14 +38,15 @@ public class Projecte2 {
         int importe = 0;
         int telefon = 0;
         int i = 0;
-        int alumnesEntrats = 0;
+        int clientsEntrats = 0;
         int seguir = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
-        boolean dadaCorrecta = true, introduirMes;
+        boolean dadaCorrecta = true; 
+        boolean introduirMes;
        
         do{
-            introduirMes=false; //per defecte, no volem introduir mes
+            introduirMes = false; //per defecte, no volem introduir mes
             //si no ens indiquen el contrari
             //Comencem demanant l'id
             System.out.print("Entra el ID: ");
@@ -146,13 +148,13 @@ public class Projecte2 {
                                         //Mostrem el resultat per pantalla
                                         System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
                                         System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
-                                        alumnesEntrats++;//comptador de alumnes
+                                        clientsEntrats++;//comptador de clients
                                         
                                 }else{//En cas de que hagi errors, donará error de dades
                                         System.out.println("Error de dades");
                                     }
-                                    //Avaluem si vol introduir més alumnes
-                                    System.out.println("es vol introduir més aluimnes?");
+                                    //Avaluem si vol introduir més clients
+                                    System.out.println("es vol introduir més clients? (0 = no / 1 = si)");
                                     dadaCorrecta = scan.hasNextInt();
                                     if (dadaCorrecta){
                                         seguir = scan.nextInt();
@@ -164,13 +166,12 @@ public class Projecte2 {
                                     }
                                     }while(introduirMes);
                                     //Mostrem dades introduides
-                                    System.out.println("S'han inscrit "+alumnesEntrats+" nous alumnes");
+                                    System.out.println("S'han inscrit "+clientsEntrats+" nous clients");
                             }
                         }
                 }
             }
         }
-
      
 
 
