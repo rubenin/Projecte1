@@ -94,51 +94,56 @@ public class Projecte2 {
                     }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
                     
                     if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
-                    System.out.print("Entra l'import: ");
-                    dadaCorrecta = scan.hasNextInt();
-                    if (dadaCorrecta){//si es un número real  
-                        importe = scan.nextInt();
-                        if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
-                            dadaCorrecta = false;
+                        i = 0;
+                        do{
+                            System.out.print("Entra l'import: ");
+                            dadaCorrecta = scan.hasNextInt();
+                            if (dadaCorrecta){//si es un número real  
+                                importe = scan.nextInt();
+                                if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
+                                    dadaCorrecta = false;
+                                }
+                            }
+                            i++;
+                        }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
+                        
+                        if (dadaCorrecta) {//Llegim el telefon
+                            System.out.print("Entra el telefon: ");
+                                dadaCorrecta = scan.hasNextInt();
+                                if (dadaCorrecta){
+                                    telefon = scan.nextInt();
+                                    if ((telefon < MINIM_TELEFON)||(telefon > MAXIM_TELEFON)){
+                                        dadaCorrecta = false;
+                                    }
+                                }
+                            }
+                            if (dadaCorrecta) {
+                                //Obtin tipus de venda
+                                switch (tipus){
+                                    case LLI:
+                                        tipusVenda = LLI_NOM;
+                                        break;
+                                    case PEN:
+                                        tipusVenda = PEN_NOM;
+                                        break;
+                                    case JOV:
+                                        tipusVenda = JOV_NOM;
+                                        break;
+                                    case SOC:
+                                        tipusVenda = SOC_NOM;
+                                        break;
+                                    }
+                                    //Mostrem el resultat per pantalla
+                                    System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
+                                    System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
+                                    }else{//En cas de que hagi errors, donará error de dades
+                                        System.out.println("Error de dades");
+                                    }
+                                }
+                            }
                         }
                     }
                 }
-                if (dadaCorrecta) {//Llegim el telefon
-                    System.out.print("Entra el telefon: ");
-                    dadaCorrecta = scan.hasNextInt();
-                    if (dadaCorrecta){
-                        telefon = scan.nextInt();
-                        if ((telefon < MINIM_TELEFON)||(telefon > MAXIM_TELEFON)){
-                            dadaCorrecta = false;
-                        }
-                    }
-                }
-                if (dadaCorrecta) {
-                    //Obtin tipus de venda
-                    switch (tipus){
-                        case LLI:
-                            tipusVenda = LLI_NOM;
-                            break;
-                        case PEN:
-                            tipusVenda = PEN_NOM;
-                            break;
-                        case JOV:
-                            tipusVenda = JOV_NOM;
-                            break;
-                        case SOC:
-                            tipusVenda = SOC_NOM;
-                            break;
-                        }
-                    //Mostrem el resultat per pantalla
-                    System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
-                    System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
-                    }else{//En cas de que hagi errors, donará error de dades
-                    System.out.println("Error de dades");
-                    }
-           }
-        }
-    }
-}
 
 
      
