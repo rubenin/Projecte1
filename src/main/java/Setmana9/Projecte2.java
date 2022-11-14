@@ -26,7 +26,8 @@ public class Projecte2 {
     public static final String PEN_NOM = "Pensionista";
     public static final String JOV_NOM = "Carnet Jove";
     public static final String SOC_NOM = "Soci";
-   
+    public static final int MAX_INTENTS = 3;
+    
     public static void main(String[] args) {
         //Definim variables
         int id = 0;
@@ -34,21 +35,26 @@ public class Projecte2 {
         int tipus = 0;
         int importe = 0;
         int telefon = 0;
+        int i = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
         boolean dadaCorrecta = true;
        
-        //Comencem demanant l'id
-        System.out.print("Entra el ID: ");
-        dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
-        if (dadaCorrecta) { //si es un número sencer
-            //LLegim dades
-            id = scan.nextInt();
-            //Avaluem si és válida
-            if ((id < MINIM_ID)||(id > MAXIM_ID)){
-                dadaCorrecta = false;
+        do{
+            //Comencem demanant l'id
+            System.out.print("Entra el ID: ");
+            dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
+            if (dadaCorrecta) { //si es un número sencer
+                //LLegim dades
+                id = scan.nextInt();
+                //Avaluem si és válida
+                if ((id < MINIM_ID)||(id > MAXIM_ID)){
+                    dadaCorrecta = false;
+                }
             }
-        }
+            i++;
+            }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
+        
         if (dadaCorrecta){
             //Pedim edat, llegim i mirem si és correcta
             System.out.print("Entra la edat: ");
