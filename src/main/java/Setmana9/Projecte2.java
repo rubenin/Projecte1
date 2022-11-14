@@ -38,14 +38,14 @@ public class Projecte2 {
         int importe = 0;
         int telefon = 0;
         int i = 0;
-        int alumnesEntrats = 0;
+        int clientsEntrats = 0;
         int seguir = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
         boolean dadaCorrecta = true, introduirMes;
 
         do {
-            introduirMes = false; 
+            introduirMes = false;
             do {
                 //Comencem demanant l'id
                 System.out.print("Entra el ID: ");
@@ -148,13 +148,13 @@ public class Projecte2 {
                 //Mostrem el resultat per pantalla
                 System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
                 System.out.println(id + " ||  " + edat + "      ||  " + tipusVenda + "     ||  " + importe + "      ||  " + telefon);
-                alumnesEntrats++;
+                clientsEntrats++;
 
             } else {//En cas de que hagi errors, donará error de dades
                 System.out.println("Error de dades");
             }
-            //Avaluem si vol introduir més alumnes
-            System.out.println("es vol introduir més aluimnes?");
+            //Avaluem si vol introduir més clients
+            System.out.println("es vol introduir més clients?");
             dadaCorrecta = scan.hasNextInt();
             if (dadaCorrecta) {
                 seguir = scan.nextInt();
@@ -166,6 +166,6 @@ public class Projecte2 {
             }
         } while (introduirMes);
         //Mostrem dades introduides
-        System.out.println("S'han inscrit " + alumnesEntrats + " nous alumnes");
+        System.out.println("S'han inscrit " + clientsEntrats + " nous clients");
     }
 }
