@@ -38,49 +38,48 @@ public class Projecte2 {
         int importe = 0;
         int telefon = 0;
         int i = 0;
-        int clientsEntrats = 0;
+        int alumnesEntrats = 0;
         int seguir = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
-        boolean dadaCorrecta = true;
-        boolean introduirMes;
+        boolean dadaCorrecta = true, introduirMes;
 
         do {
-            introduirMes = false; //per defecte, no volem introduir mes
-            //si no ens indiquen el contrari
-            //Comencem demanant l'id
-            System.out.print("Entra el ID: ");
-            dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
-            if (dadaCorrecta) { //si es un número sencer
-                //LLegim dades
-                id = scan.nextInt();
-                //Avaluem si és válida
-                if ((id < MINIM_ID) || (id > MAXIM_ID)) {
-                    dadaCorrecta = false;
-                }
-            }
-            i++;
-        } while ((!dadaCorrecta) && (i < MAX_INTENTS));
-
-        if (dadaCorrecta) {
-            i = 0;//Inicialitzem comptador
-
+            introduirMes = false; 
             do {
-                //Pedim edat, llegim i mirem si és correcta
-                System.out.print("Entra la edat: ");
-                dadaCorrecta = scan.hasNextInt();
-
-                if (dadaCorrecta) {
-                    //Llegim dades
-                    edat = scan.nextInt();
+                //Comencem demanant l'id
+                System.out.print("Entra el ID: ");
+                dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
+                if (dadaCorrecta) { //si es un número sencer
+                    //LLegim dades
+                    id = scan.nextInt();
                     //Avaluem si és válida
-                    if ((edat < MINIM_EDAT) || (edat > MAXIM_EDAT)) {
+                    if ((id < MINIM_ID) || (id > MAXIM_ID)) {
                         dadaCorrecta = false;
                     }
                 }
                 i++;
             } while ((!dadaCorrecta) && (i < MAX_INTENTS));
 
+            if (dadaCorrecta) {
+                i = 0;//Inicialitzem comptador
+
+                do {
+                    //Pedim edat, llegim i mirem si és correcta
+                    System.out.print("Entra la edat: ");
+                    dadaCorrecta = scan.hasNextInt();
+
+                    if (dadaCorrecta) {
+                        //Llegim dades
+                        edat = scan.nextInt();
+                        //Avaluem si és válida
+                        if ((edat < MINIM_EDAT) || (edat > MAXIM_EDAT)) {
+                            dadaCorrecta = false;
+                        }
+                    }
+                    i++;
+                } while ((!dadaCorrecta) && (i < MAX_INTENTS));
+            }
             if (dadaCorrecta) {
                 i = 0; // Inicialitzem el comptador
                 do {
@@ -100,77 +99,73 @@ public class Projecte2 {
                     }
                     i++;
                 } while ((!dadaCorrecta) && (i < MAX_INTENTS));
-
-                if (dadaCorrecta) {//Si fins al moment tot es correcte, pedim l'import
-                    i = 0;
-                    do {
-                        System.out.print("Entra l'import: ");
-                        dadaCorrecta = scan.hasNextInt();
-                        if (dadaCorrecta) {//si es un número real  
-                            importe = scan.nextInt();
-                            if ((importe < MINIM_IMPORT) || (importe > MAXIM_IMPORT)) {
-                                dadaCorrecta = false;
-                            }
-                        }
-                        i++;
-                    } while ((!dadaCorrecta) && (i < MAX_INTENTS));
-
-                    if (dadaCorrecta) {
-                        i = 0;
-                        //Llegim el telefon
-                        do {
-                            System.out.print("Entra el telefon: ");
-                            dadaCorrecta = scan.hasNextInt();
-                            if (dadaCorrecta) {
-                                telefon = scan.nextInt();
-                                if ((telefon < MINIM_TELEFON) || (telefon > MAXIM_TELEFON)) {
-                                    dadaCorrecta = false;
-                                }
-                            }
-                            i++;
-                        } while ((!dadaCorrecta) && (i < MAX_INTENTS));
-
-                        if (dadaCorrecta) {
-                            //Obtin tipus de venda
-                            switch (tipus) {
-                                case LLI:
-                                    tipusVenda = LLI_NOM;
-                                    break;
-                                case PEN:
-                                    tipusVenda = PEN_NOM;
-                                    break;
-                                case JOV:
-                                    tipusVenda = JOV_NOM;
-                                    break;
-                                case SOC:
-                                    tipusVenda = SOC_NOM;
-                                    break;
-                            }
-                            //Mostrem el resultat per pantalla
-                            System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
-                            System.out.println(id + " ||  " + edat + "      ||  " + tipusVenda + "     ||  " + importe + "      ||  " + telefon);
-                            clientsEntrats++;//comptador de clients
-
-                        } else {//En cas de que hagi errors, donará error de dades
-                            System.out.println("Error de dades");
-                        }
-                        //Avaluem si vol introduir més clients
-                        System.out.println("es vol introduir més clients? (0 = no / 1 = si)");
-                        dadaCorrecta = scan.hasNextInt();
-                        if (dadaCorrecta) {
-                            seguir = scan.nextInt();
-                            if (seguir == 1) {
-                                introduirMes = true;
-                            }
-                        } else {
-                            System.out.println("Dada incorrecta");
+            }
+            if (dadaCorrecta) {//Si fins al moment tot es correcte, pedim l'import
+                i = 0;
+                do {
+                    System.out.print("Entra l'import: ");
+                    dadaCorrecta = scan.hasNextInt();
+                    if (dadaCorrecta) {//si es un número real  
+                        importe = scan.nextInt();
+                        if ((importe < MINIM_IMPORT) || (importe > MAXIM_IMPORT)) {
+                            dadaCorrecta = false;
                         }
                     }
-                    while (introduirMes);
-                    //Mostrem dades introduides
-                    System.out.println("S'han inscrit " + clientsEntrats + " nous clients");
-                }
+                    i++;
+                } while ((!dadaCorrecta) && (i < MAX_INTENTS));
             }
-        }
+            if (dadaCorrecta) {
+                i = 0;
+                //Llegim el telefon
+                do {
+                    System.out.print("Entra el telefon: ");
+                    dadaCorrecta = scan.hasNextInt();
+                    if (dadaCorrecta) {
+                        telefon = scan.nextInt();
+                        if ((telefon < MINIM_TELEFON) || (telefon > MAXIM_TELEFON)) {
+                            dadaCorrecta = false;
+                        }
+                    }
+                    i++;
+                } while ((!dadaCorrecta) && (i < MAX_INTENTS));
+            }
+            if (dadaCorrecta) {
+                //Obtin tipus de venda
+                switch (tipus) {
+                    case LLI:
+                        tipusVenda = LLI_NOM;
+                        break;
+                    case PEN:
+                        tipusVenda = PEN_NOM;
+                        break;
+                    case JOV:
+                        tipusVenda = JOV_NOM;
+                        break;
+                    case SOC:
+                        tipusVenda = SOC_NOM;
+                        break;
+                }
+                //Mostrem el resultat per pantalla
+                System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
+                System.out.println(id + " ||  " + edat + "      ||  " + tipusVenda + "     ||  " + importe + "      ||  " + telefon);
+                alumnesEntrats++;
+
+            } else {//En cas de que hagi errors, donará error de dades
+                System.out.println("Error de dades");
+            }
+            //Avaluem si vol introduir més alumnes
+            System.out.println("es vol introduir més aluimnes?");
+            dadaCorrecta = scan.hasNextInt();
+            if (dadaCorrecta) {
+                seguir = scan.nextInt();
+                if (seguir == 1) {
+                    introduirMes = true;
+                }
+            } else {
+                System.out.println("Dada incorrecta");
+            }
+        } while (introduirMes);
+        //Mostrem dades introduides
+        System.out.println("S'han inscrit " + alumnesEntrats + " nous alumnes");
     }
 }
