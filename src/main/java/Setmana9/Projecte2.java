@@ -57,6 +57,8 @@ public class Projecte2 {
         
             if (dadaCorrecta){
                 i = 0;//Inicialitzem comptador
+                
+                do{
                 //Pedim edat, llegim i mirem si és correcta
                 System.out.print("Entra la edat: ");
                 dadaCorrecta = scan.hasNextInt();
@@ -68,37 +70,38 @@ public class Projecte2 {
                     if ((edat < MINIM_EDAT)||(edat > MAXIM_EDAT)){
                         dadaCorrecta = false;
                     }
-                }
-            }
-            if (dadaCorrecta){
+                }i++;
+            }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
+         
+                if (dadaCorrecta){
                 
-                //Entrem tipus de venda
-                System.out.print("\tVenda lliure (0)\n" +
+                    //Entrem tipus de venda
+                    System.out.print("\tVenda lliure (0)\n" +
                                 "\tPensionista (1)\n" +
                                 "\tCarnet jove (2)\n" +
                                 "\tSoci (3)\n\n" +
                                 "Entra el tipus de venda:");
-                dadaCorrecta = scan.hasNextInt();
-                if (dadaCorrecta){
-                    tipus = scan.nextInt();
-                    if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
-                        dadaCorrecta = false;
+                    dadaCorrecta = scan.hasNextInt();
+                    if (dadaCorrecta){
+                        tipus = scan.nextInt();
+                        if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
+                            dadaCorrecta = false;
+                        }
                     }
                 }
-            }
-            if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
-                System.out.print("Entra l'import: ");
-                dadaCorrecta = scan.hasNextInt();
-                if (dadaCorrecta){//si es un número real  
-                    importe = scan.nextInt();
-                    if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
-                        dadaCorrecta = false;
+                if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
+                    System.out.print("Entra l'import: ");
+                    dadaCorrecta = scan.hasNextInt();
+                    if (dadaCorrecta){//si es un número real  
+                        importe = scan.nextInt();
+                        if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
+                            dadaCorrecta = false;
+                        }
                     }
                 }
-            }
-            if (dadaCorrecta) {//Llegim el telefon
-                System.out.print("Entra el telefon: ");
-                dadaCorrecta = scan.hasNextInt();
+                if (dadaCorrecta) {//Llegim el telefon
+                    System.out.print("Entra el telefon: ");
+                    dadaCorrecta = scan.hasNextInt();
                     if (dadaCorrecta){
                         telefon = scan.nextInt();
                         if ((telefon < MINIM_TELEFON)||(telefon > MAXIM_TELEFON)){
@@ -130,6 +133,7 @@ public class Projecte2 {
                     }
         }
     }
+}
 
 
      
