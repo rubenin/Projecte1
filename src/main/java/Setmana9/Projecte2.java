@@ -26,7 +26,6 @@ public class Projecte2 {
     public static final String PEN_NOM = "Pensionista";
     public static final String JOV_NOM = "Carnet Jove";
     public static final String SOC_NOM = "Soci";
-    public static final int MAX_INTENTS = 3;
    
     public static void main(String[] args) {
         //Definim variables
@@ -35,13 +34,10 @@ public class Projecte2 {
         int tipus = 0;
         int importe = 0;
         int telefon = 0;
-        int i = 0;
         String tipusVenda = "";
         Scanner scan = new Scanner(System.in);
         boolean dadaCorrecta = true;
        
-        
-    do{
         //Comencem demanant l'id
         System.out.print("Entra el ID: ");
         dadaCorrecta = scan.hasNextInt(); //per analitzar tipus de dada
@@ -53,12 +49,7 @@ public class Projecte2 {
                 dadaCorrecta = false;
             }
         }
-        i++;
-    }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
-    
-    do {
         if (dadaCorrecta){
-            i = 0;//Inicialitzem el comptador
             //Pedim edat, llegim i mirem si és correcta
             System.out.print("Entra la edat: ");
             dadaCorrecta = scan.hasNextInt();
@@ -71,9 +62,6 @@ public class Projecte2 {
                 }
             }
         }
-            i++;
-    }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
-        
         if (dadaCorrecta){
             //Entrem tipus de venda
             System.out.print("\tVenda lliure (0)\n" +
@@ -130,10 +118,9 @@ public class Projecte2 {
                 System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
                 }else{//En cas de que hagi errors, donará error de dades
                 System.out.println("Error de dades");
-            }
+                }
     }
-    }
-    
+}
 
 
      
