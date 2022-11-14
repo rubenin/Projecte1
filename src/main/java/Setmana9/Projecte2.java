@@ -74,22 +74,26 @@ public class Projecte2 {
             }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
          
                 if (dadaCorrecta){
+                    i = 0; // Inicialitzem el comptador
+                    do{
                 
-                    //Entrem tipus de venda
-                    System.out.print("\tVenda lliure (0)\n" +
+                        //Entrem tipus de venda
+                        System.out.print("\tVenda lliure (0)\n" +
                                 "\tPensionista (1)\n" +
                                 "\tCarnet jove (2)\n" +
                                 "\tSoci (3)\n\n" +
                                 "Entra el tipus de venda:");
-                    dadaCorrecta = scan.hasNextInt();
-                    if (dadaCorrecta){
-                        tipus = scan.nextInt();
-                        if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
-                            dadaCorrecta = false;
+                        dadaCorrecta = scan.hasNextInt();
+                        if (dadaCorrecta){
+                            tipus = scan.nextInt();
+                            if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
+                                dadaCorrecta = false;
+                            }
                         }
-                    }
-                }
-                if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
+                        i++;
+                    }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
+                    
+                    if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
                     System.out.print("Entra l'import: ");
                     dadaCorrecta = scan.hasNextInt();
                     if (dadaCorrecta){//si es un número real  
@@ -131,6 +135,7 @@ public class Projecte2 {
                     }else{//En cas de que hagi errors, donará error de dades
                     System.out.println("Error de dades");
                     }
+           }
         }
     }
 }
