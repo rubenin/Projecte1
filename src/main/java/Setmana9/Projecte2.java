@@ -55,78 +55,81 @@ public class Projecte2 {
             i++;
             }while ((!dadaCorrecta)&&(i<MAX_INTENTS));
         
-        if (dadaCorrecta){
-            //Pedim edat, llegim i mirem si és correcta
-            System.out.print("Entra la edat: ");
-            dadaCorrecta = scan.hasNextInt();
-            if (dadaCorrecta) {
-                //Llegim dades
-                edat = scan.nextInt();
-                //Avaluem si és válida
-                if ((edat < MINIM_EDAT)||(edat > MAXIM_EDAT)){
-                    dadaCorrecta = false;
-                }
-            }
-        }
-        if (dadaCorrecta){
-            //Entrem tipus de venda
-            System.out.print("\tVenda lliure (0)\n" +
-                            "\tPensionista (1)\n" +
-                            "\tCarnet jove (2)\n" +
-                            "\tSoci (3)\n\n" +
-                            "Entra el tipus de venda:");
-            dadaCorrecta = scan.hasNextInt();
             if (dadaCorrecta){
-                tipus = scan.nextInt();
-                if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
-                    dadaCorrecta = false;
-                }
-            }
-        }
-        if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
-            System.out.print("Entra l'import: ");
-            dadaCorrecta = scan.hasNextInt();
-            if (dadaCorrecta){//si es un número real  
-                importe = scan.nextInt();
-                if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
-                    dadaCorrecta = false;
-                }
-            }
-        }
-        if (dadaCorrecta) {//Llegim el telefon
-            System.out.print("Entra el telefon: ");
-            dadaCorrecta = scan.hasNextInt();
-                if (dadaCorrecta){
-                    telefon = scan.nextInt();
-                    if ((telefon < MINIM_TELEFON)||(telefon > MAXIM_TELEFON)){
+                i = 0;//Inicialitzem comptador
+                //Pedim edat, llegim i mirem si és correcta
+                System.out.print("Entra la edat: ");
+                dadaCorrecta = scan.hasNextInt();
+                
+                if (dadaCorrecta) {
+                    //Llegim dades
+                    edat = scan.nextInt();
+                    //Avaluem si és válida
+                    if ((edat < MINIM_EDAT)||(edat > MAXIM_EDAT)){
                         dadaCorrecta = false;
                     }
                 }
             }
-            if (dadaCorrecta) {
-                //Obtin tipus de venda
-                switch (tipus){
-                    case LLI:
-                        tipusVenda = LLI_NOM;
-                        break;
-                    case PEN:
-                        tipusVenda = PEN_NOM;
-                        break;
-                    case JOV:
-                        tipusVenda = JOV_NOM;
-                        break;
-                    case SOC:
-                        tipusVenda = SOC_NOM;
-                        break;
+            if (dadaCorrecta){
+                
+                //Entrem tipus de venda
+                System.out.print("\tVenda lliure (0)\n" +
+                                "\tPensionista (1)\n" +
+                                "\tCarnet jove (2)\n" +
+                                "\tSoci (3)\n\n" +
+                                "Entra el tipus de venda:");
+                dadaCorrecta = scan.hasNextInt();
+                if (dadaCorrecta){
+                    tipus = scan.nextInt();
+                    if ((tipus < MINIM_TIPUS)||(tipus > MAXIM_TIPUS)){
+                        dadaCorrecta = false;
                     }
-                //Mostrem el resultat per pantalla
-                System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
-                System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
-                }else{//En cas de que hagi errors, donará error de dades
-                System.out.println("Error de dades");
                 }
+            }
+            if (dadaCorrecta){//Si fins al moment tot es correcte, pedim l'import
+                System.out.print("Entra l'import: ");
+                dadaCorrecta = scan.hasNextInt();
+                if (dadaCorrecta){//si es un número real  
+                    importe = scan.nextInt();
+                    if ((importe < MINIM_IMPORT)||(importe > MAXIM_IMPORT)){
+                        dadaCorrecta = false;
+                    }
+                }
+            }
+            if (dadaCorrecta) {//Llegim el telefon
+                System.out.print("Entra el telefon: ");
+                dadaCorrecta = scan.hasNextInt();
+                    if (dadaCorrecta){
+                        telefon = scan.nextInt();
+                        if ((telefon < MINIM_TELEFON)||(telefon > MAXIM_TELEFON)){
+                            dadaCorrecta = false;
+                        }
+                    }
+                }
+                if (dadaCorrecta) {
+                    //Obtin tipus de venda
+                    switch (tipus){
+                        case LLI:
+                            tipusVenda = LLI_NOM;
+                            break;
+                        case PEN:
+                            tipusVenda = PEN_NOM;
+                            break;
+                        case JOV:
+                            tipusVenda = JOV_NOM;
+                            break;
+                        case SOC:
+                            tipusVenda = SOC_NOM;
+                            break;
+                        }
+                    //Mostrem el resultat per pantalla
+                    System.out.println("ID  ||  Edat    ||  Tipus de venda  ||  Import  ||  Telefon");
+                    System.out.println(id+" ||  "+edat+"      ||  "+tipusVenda+"     ||  "+importe+"      ||  "+telefon);
+                    }else{//En cas de que hagi errors, donará error de dades
+                    System.out.println("Error de dades");
+                    }
+        }
     }
-}
 
 
      
